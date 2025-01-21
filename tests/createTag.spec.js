@@ -23,39 +23,19 @@ test("Search for a specific tag", async ({ page }) => {
     await expect(createTag.tagChip).toHaveText('Android 13');
 })
 
-// test.afterEach(async ({ page }) => {
-//     const createTag = new CreateTag(page)
-//     await createTag.visitCreateTag();
-//     await createTag.search_for_tag("Test")
-//         if (createATag === true) {
-//             await createTag.delete_tag("Test");
-// }})
-// test("Create a new machine tag", async ({ page }) => {
-//     const createTag = new CreateTag(page)
-//     await createTag.visitCreateTag();
-//     await createTag.createNewTagManualMachine("Test", createTagDetails)
-//     createATag = true;
-//     await createTag.search_for_tag("Test")
-//     await expect(createTag.tagChip).toHaveText('Test');
-//     await expect(createTag.machineIcon).toHaveCount(1);
-// })
-
-//
-// dummy test for searching by tag
-// click create tag button
-// type in a specific search tag
-// Verify the search tag, assignment, attribute, assigned entities is available.
-// Verify the expect of the tag name by innertext. 
-
-// dummy test for creating a tag
-// when creating a generate random uuid
-// create after each action that removes the random named tag that was created. 
-// reference this when creating th details https://www.udemy.com/course/automated-web-testing/learn/lecture/35756754#overview
-
-// dummy test to verify dropdown
-// use this expect example when clicking dropdown (tocList is identity element of the dropdown list)
-// await expect(playwrightDev.tocList).toHaveText([
-//     `How to install Playwright`,
-//     `What's Installed`,
-//     `How to run the example test`,
-//     `How to open the HTML test report`,
+test.afterEach(async ({ page }) => {
+    const createTag = new CreateTag(page)
+    await createTag.visitCreateTag();
+    await createTag.search_for_tag("Test")
+        if (createATag === true) {
+            await createTag.delete_tag("Test");
+}})
+test("Create a new machine tag", async ({ page }) => {
+    const createTag = new CreateTag(page)
+    await createTag.visitCreateTag();
+    await createTag.createNewTagManualMachine("Test", createTagDetails)
+    createATag = true;
+    await createTag.search_for_tag("Test")
+    await expect(createTag.tagChip).toHaveText('Test');
+    await expect(createTag.machineIcon).toHaveCount(1);
+})
